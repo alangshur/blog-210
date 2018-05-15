@@ -22,4 +22,5 @@ html {
 
 .inline_div {
   display: inline;
+  cursor: pointer;
 }
