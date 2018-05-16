@@ -24,3 +24,7 @@ html {
   display: inline;
   cursor: pointer;
 }
+
+#nav_about {
+  float: right;
+}

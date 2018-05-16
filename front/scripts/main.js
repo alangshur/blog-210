@@ -1,5 +1,4 @@
-var writeAccess = false;
-localStorage.setItem('writeAcess', writeAccess);
+localStorage.setItem('writeAccess', false);
 
 var promptSelect = document.querySelector('#login');
 
@@ -30,21 +29,38 @@ promptSelect.onclick = function() {
             localStorage.setItem('user', 'Ryan Kearns');        
     }
 
-    writeAccess = true;
+    localStorage.setItem('writeAccess', true);
 
     alert('Welcome back ' + userName + '!');
 }
 
-var homeSelect = document.querySelector('#nav-home');
+var homeSelect = document.querySelector('#nav_home');
 
 // navigate home
 homeSelect.onclick = function() {
-    alert('test');
+    window.location.href = "index.html";
 }
 
-var aboutSelect = document.querySelector('#nav-about');
+var aboutSelect = document.querySelector('#nav_about');
 
 // navigate about
 aboutSelect.onclick = function() {
-    alert('test');
+    window.location.href = "about.html";
+}
+
+navigator.geolocation.getCurrentPosition(success, error);
+
+function success(position) {
+    console.log(position.coords.latitude)
+    console.log(position.coords.longitude)
+
+    var locationJSON = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + '%2C' + position.coords.longitude + '&language=en';
+
+    $.getJSON(locationJSON).done(function(location) {
+        console.log(location)
+    })
+}
+
+function error(err) {
+    console.log(err)
 }
