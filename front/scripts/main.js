@@ -48,7 +48,7 @@ promptSelect.onclick = function() {
             function handleLocation(position) {
                 var lat = position.coords.latitude;
                 var long = position.coords.longitude;
-                
+
                 $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + '%2C' + long + '&language=en', function(data) {
                     sessionStorage.setItem('location', data.results[1].formatted_address);
                     formattedLocation = data.results[1].formatted_address;
