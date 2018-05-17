@@ -35,6 +35,10 @@ i {
   left: 4px;
 }
 
+.flip-move {
+  top: -1px;
+}
+
 .up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
