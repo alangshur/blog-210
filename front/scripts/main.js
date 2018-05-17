@@ -1,4 +1,4 @@
-localStorage.setItem('writeAccess', false);
+sessionStorage.setItem('writeAccess', false);
 
 var promptSelect = document.querySelector('#login');
 
@@ -15,23 +15,46 @@ promptSelect.onclick = function() {
     }
     while (userName != 'Alex' && userName != 'Max' && userName != 'Matt' && userName != 'Ryan');
 
+    // store name in session 
     switch (userName) {
         case 'Alex':
-            localStorage.setItem('user', 'Alex Langshur');
+            sessionStorage.setItem('user', 'Alex Langshur');
             break;
         case 'Max':
-            localStorage.setItem('user', 'Max Comolli');
+            sessionStorage.setItem('user', 'Max Comolli');
             break;
         case 'Matt':
-            localStorage.setItem('user', 'Matt Hall');
+            sessionStorage.setItem('user', 'Matt Hall');
             break;
         case 'Ryan':
-            localStorage.setItem('user', 'Ryan Kearns');        
+            sessionStorage.setItem('user', 'Ryan Kearns');        
     }
 
-    localStorage.setItem('writeAccess', true);
+    // find and store location
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(handleLocation, handleLocationError);
+    }
+    else {
+        console.log('ERROR: Browser doesn\'t support location services');
+    }
 
-    alert('Welcome back ' + userName + '!');
+    function handleLocation(position) {
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+        
+        $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + '%2C' + long + '&language=en', function(data) {
+            sessionStorage.setItem('location', locationStr = data.results[1].formatted_address);
+        });
+    }
+    
+    function handleLocationError(err) {
+        console.log('ERROR: Location unavailable');
+    }
+
+    // set write flag in storage
+    sessionStorage.setItem('writeAccess', true);
+
+    // alert('Welcome back ' + userName + '!');
 }
 
 var homeSelect = document.querySelector('#nav_home');
@@ -46,21 +69,4 @@ var aboutSelect = document.querySelector('#nav_about');
 // navigate about
 aboutSelect.onclick = function() {
     window.location.href = "about.html";
-}
-
-navigator.geolocation.getCurrentPosition(success, error);
-
-function success(position) {
-    console.log(position.coords.latitude)
-    console.log(position.coords.longitude)
-
-    var locationJSON = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + '%2C' + position.coords.longitude + '&language=en';
-
-    $.getJSON(locationJSON).done(function(location) {
-        console.log(location)
-    })
-}
-
-function error(err) {
-    console.log(err)
 }
