@@ -1,4 +1,6 @@
-sessionStorage.setItem('writeAccess', false);
+if (!sessionStorage.getItem('writeAccess')) {
+    sessionStorage.setItem('writeAccess', false);
+}
 
 var promptSelect = document.querySelector('#login');
 
@@ -31,30 +33,41 @@ promptSelect.onclick = function() {
     }
 
     // find and store location
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(handleLocation, handleLocationError);
-    }
-    else {
-        console.log('ERROR: Browser doesn\'t support location services');
-    }
+    var formattedLocation = 'ARB_STRING';
 
-    function handleLocation(position) {
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
+    do {
+        (function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(handleLocation, handleLocationError);
+            }
+            else {
+                console.log('ERROR: Browser doesn\'t support location services');
+                formmatedLocation = 'ARB_STRING';
+            }
         
-        $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + '%2C' + long + '&language=en', function(data) {
-            sessionStorage.setItem('location', locationStr = data.results[1].formatted_address);
-        });
+            function handleLocation(position) {
+                var lat = position.coords.latitude;
+                var long = position.coords.longitude;
+                
+                $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + '%2C' + long + '&language=en', function(data) {
+                    sessionStorage.setItem('location', data.results[1].formatted_address);
+                    formattedLocation = data.results[1].formatted_address;
+                });
+            }
+            
+            function handleLocationError(err) {
+                console.log('ERROR: Location unavailable');
+                formattedLocation == null;
+            }
+        })();
     }
-    
-    function handleLocationError(err) {
-        console.log('ERROR: Location unavailable');
-    }
+    while(formattedLocation == null);
+
 
     // set write flag in storage
     sessionStorage.setItem('writeAccess', true);
 
-    // alert('Welcome back ' + userName + '!');
+    alert('Welcome back ' + userName + '!');
 }
 
 var homeSelect = document.querySelector('#nav_home');
