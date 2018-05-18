@@ -1,7 +1,17 @@
-.about-section {
-    width: 1000px;
-    background-color: #B7CFF2;
-    padding: 0 20px 13px 20px;
-    margin: 20px auto;
-    border: 2px solid darkblue;
+#about-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0px 22px 0px 41px;
+}
+
+#about-wrapper div {
+  padding: 200px;
+  border: 2px solid darkblue;
+  background-color: #e8ebef;
+  margin: 0px 20px 22px 1px;
+}
+
+.about-box {
+  flex: 1 1 0;
 }
