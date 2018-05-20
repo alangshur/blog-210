@@ -48,3 +48,11 @@ i {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+#post-body {
+  background-color: #e8ebef;
+  width: 1000px;
+  padding: 13px 20px 13px 20px;
+  margin: 20px auto;
+  border: 2px solid darkblue;
+}
