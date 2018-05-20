@@ -1,17 +1,33 @@
-#about-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 0px 22px 0px 41px;
-}
-
-#about-wrapper div {
-  padding: 200px;
-  border: 2px solid darkblue;
+#about-top-body {
   background-color: #e8ebef;
-  margin: 0px 20px 22px 1px;
+  width: 1000px;
+  padding: 13px 20px 13px 20px;
+  margin: 20px auto;
+  border: 2px solid darkblue;
+  font-size: 14px;
 }
 
-.about-box {
-  flex: 1 1 0;
+#about-bottom-body {
+  background-color: #e8ebef;
+  width: 1000px;
+  padding: 13px 20px 13px 20px;
+  margin: 20px auto;
+  border: 2px solid darkblue;
+  font-size: 14px;
+}
+
+.portrait-format {
+  width: 250px;
+  height: auto;
+  display: block;
+  padding: 1px;
+  border: 1px solid #021a40;
+  background-color: #B7CFF2; 
+}
+
+.about-text {
+  float: right;
+  width: 70%;
+  font-size: 12px;
+  padding: 10px 0px 0px 46px;
 }
