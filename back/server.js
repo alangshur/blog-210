@@ -1,1 +1,1 @@
-// server side scripting
+// serverside scripting
