@@ -7,6 +7,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/front'));
+app.use(express.static(__dirname + '/back'));
 app.use('/images', express.static(__dirname + '/images'));
 
 app.listen(3000, function() {
