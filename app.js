@@ -18,6 +18,6 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/front/index.html');
 });
 
-app.post('/', (req, res) => {
-  console.log('Hellooooooooooooooooo!');
+app.post('/quotes', (req, res) => {
+  console.log(req.body);
 })
