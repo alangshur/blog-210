@@ -28,10 +28,14 @@
     </div>
 
     <div id="post-body">
-      <!-- POSTS -->
+      <form action="/quotes" method="POST">
+        <input type="text" placeholder="name" name="name">
+        <input type="text" placeholder="quote" name="quote">
+        <button type="submit">Submit</button>
+      </form>
     </div>
 
-    <script src="./../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/sort.js"></script>
   </body>
