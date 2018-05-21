@@ -1,9 +1,10 @@
 # blog210
 
 File Structure
-- 'front' : front-end files (HTML/CSS/JS)
-- 'back' : back-end files (JS)
+- 'html' : front-end html files
 - 'images' : relevant .png and .jpg files
+- 'styles' : CSS stylesheets
+- 'scripts' : js-related html scripts
 - 'node_modules' : relevant node dependencies
 - app.js : main
 - package.json / package-lock.json : self-explanatory
