@@ -4,13 +4,13 @@ const path = require('path');
 const bodyParser= require('body-parser'); 
 const MongoClient = require('mongodb').MongoClient;
 
-const app = express();
+app = express();
+app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/scripts', express.static(__dirname + '/scripts'));
-app.use('/styles', express.static(__dirname + '/styles'));
-app.use('/images', express.static(__dirname + '/images'));
-app.set('view engine', 'ejs')
+app.use('/scripts', express.static('scripts'));
+app.use('/styles', express.static('styles'));
+app.use('/images', express.static('images'));
 
 // connect mongo 
 var db;
@@ -26,22 +26,14 @@ MongoClient.connect('mongodb://room210:BLOG210!@ds014658.mlab.com:14658/blog210_
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/html/index.html');
-
-  db.collection('posts').find().toArray(function(err, result) {
-    if (err) return console.log(err);
-
-    console.log(result);
-  });
+  res.redirect("/index.html");
 });
 
 app.get('/index.html', (req, res) => {
-  res.sendFile(__dirname + '/html/index.html');
-
   db.collection('posts').find().toArray(function(err, result) {
     if (err) return console.log(err);
 
-    console.log(result);
+    res.render('index.ejs', {posts: result})
   });
 });
 
@@ -53,6 +45,6 @@ app.post('/posts', (req, res) => {
   db.collection('posts').save(req.body, (err, result) => {
     if (err) return console.log(err);
 
-    res.redirect('/');
+    res.redirect('/index.html'); 
   });
 });
