@@ -41,6 +41,10 @@ app.get('/about.html', (req, res) => {
   res.sendFile(__dirname + '/html/about.html');
 });
 
+app.get('/write.html', (req, res) => {
+  res.sendFile(__dirname + '/html/write.html');
+});
+
 app.post('/posts', (req, res) => {
   db.collection('posts').save(req.body, (err, result) => {
     if (err) return console.log(err);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang"en">
+<html lang="en">
   <head>
     <title>Blog 210</title>
     <meta charset="utf-8">
@@ -28,21 +28,17 @@
     </div>
 
     <div id="post-body">
-      <form action="/posts" method="POST">
-        <input type="text" placeholder="Post" name="post">
-        <button type="submit">Submit</button>
-      </form>
-
       <div>
         <% for(var i = 0; i < posts.length; i++) {%>
-            <%= posts[i].post %>
+            <% var postStr = (posts[i].post).replace(/\r\n/g, '<br>'); %>
+            <%- postStr %><br>
         <% } %>
       </div>
     </div>
 
-    <script src="../scripts/jquery.min.js"></script>
     <script src="../scripts/main.js"></script>
     <script src="../scripts/post.js"></script>
     <script src="../scripts/sort.js"></script>
+    <script src="../scripts/jquery.min.js"></script>
   </body>
 </html>
