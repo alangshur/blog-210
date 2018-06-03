@@ -88,3 +88,27 @@ try {
     }
 }
 catch(err) {}
+
+function updateFields() {
+    document.getElementById("user-input").value = sessionStorage.getItem('user');
+
+    // get time (convert from 24-hour clock)
+    var formatted_date, formatted_time;
+    var date = new Date();
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    var time = date.getHours();
+    var meridiem = (time < 12) ? "AM" : "PM";
+    time = (time + 11) % 12 + 1;
+
+    var min = date.getMinutes();
+    if (min < 10) {
+        min = "0" + min;
+    }
+    
+    formatted_time = time + ":" + min + " " + meridiem;
+    formatted_date = months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
+
+    document.getElementById("time-input").value = formatted_date + " - " + formatted_time;
+    document.getElementById("location-input").value = sessionStorage.getItem('location');
+}

@@ -31,7 +31,7 @@
       <div>
         <% for(var i = 0; i < posts.length; i++) {%>
             <% var postStr = (posts[i].post).replace(/\r\n/g, '<br>'); %>
-            <%- postStr %><br>
+            <%- postStr +  posts[i].user + posts[i].location + posts[i].time%><br>
         <% } %>
       </div>
     </div>

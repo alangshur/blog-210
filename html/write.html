@@ -11,8 +11,12 @@
         <div id="home-format"><span id="nav_home" class="pointer">Home</span></div><br>
         <form id="post-form" action="/posts" method="POST">
             <textarea rows="25" cols="100" name="post"></textarea>
+            <input type="hidden" id="user-input" name="user">
+            <input type="hidden" id="time-input" name="time">
+            <input type="hidden" id="location-input" name="location">
+            
             <div>
-                <button type="submit">Post</button>
+                <button type="submit" onclick="updateFields()">Post</button>
             </div>
         </form>
     </body>
