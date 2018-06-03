@@ -10,19 +10,18 @@
 
 .sort-title {
   position: relative;
-  bottom: 7px;
+  bottom: 16px;
 }
 
 .sort-date {
   position: relative;
-  bottom: 7px;
+  bottom: 16px;
   left: 39%;
 }
 
 .sort-person {
-  position: relative;
-  bottom: 7px;
-  left: 80.5%;
+  bottom: 16px;
+  left: 79.6%;
 }
 
 i {
@@ -36,7 +35,7 @@ i {
 }
 
 .flip-move {
-  top: -1px;
+  top: -2px;
 }
 
 .up {

@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link href="../styles/index_style.css" rel="stylesheet" type="text/css">
     <link href="../styles/home_style.css" rel="stylesheet" type="text/css">
+    <link href="../styles/dropdown.css" rel="stylesheet" type="text/css">
   </head>
 
   <body>
@@ -20,20 +21,26 @@
         <b>Sort Posts:</b>
       </div> 
       <div class="sort-date inline_div selectable">
-        Date <i id="flip-date" class="arrow up selectable"></i>
+        Date <i id="flip-date" class="arrow up selectable down flip-move"></i>
       </div>
-      <div class="sort-person inline_div selectable">
-        Person <i id="flip-person" class="arrow up selectable"></i>
+      <div class="sort-person inline_div selectable dropdown">
+        <button onclick="triggerDrop()" class="dropbtn">Person <i id="dropdown-carrot" class="arrow down"></i></button>
+        <div id="dropdown-trigger" class="dropdown-content">
+          <a onclick="sortPosts('person', 'Alex Langshur')">Alex Langshur</a>
+          <a onclick="sortPosts('person', 'Ryan Kearns')">Ryan Kearns</a>
+          <a onclick="sortPosts('person', 'Matt Hall')">Matt Hall</a>
+          <a onclick="sortPosts('person', 'Max Comolli')">Max Comolli</a>
+        </div>
       </div>
     </div>
 
-    <div id="post-body">
-      <div>
-        <% for(var i = 0; i < posts.length; i++) {%>
-            <% var postStr = (posts[i].post).replace(/\r\n/g, '<br>'); %>
-            <%- postStr +  posts[i].user + posts[i].location + posts[i].time%><br>
-        <% } %>
-      </div>
+    <div id="post-body post-list">
+      <% for(var i = 0; i < posts.length; i++) {%>
+        <div data-time="<%=posts[i].time%>" data-user="<%=posts[i].user%>">
+          <% var postStr = (posts[i].post).replace(/\r\n/g, '<br>'); %>
+          <%- postStr + posts[i].user + posts[i].location + posts[i].time%><br>
+        </div>
+      <% } %>
     </div>
 
     <script src="../scripts/main.js"></script>

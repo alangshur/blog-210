@@ -1,17 +1,60 @@
 var dateTag = document.querySelector('.sort-date');
-var personTag = document.querySelector('.sort-person');
-
 var dateSelect = document.querySelector('#flip-date');
-var personSelect = document.querySelector('#flip-person');
+var dateSelected = false; 
 
 // flip date carrot
 dateTag.onclick = function() {
-    dateSelect.classList.toggle('down');
-    dateSelect.classList.toggle('flip-move');
+    if (!dateSelected) {
+        sortPosts("date", "newest");
+        dateSelected = true;
+    }
+    else if (dateSelect.classList.contains('down')) {
+        dateSelect.classList.toggle('down');
+        dateSelect.classList.toggle('flip-move');
+        sortPosts("date", "oldest");
+    }
+    else {
+        dateSelect.classList.toggle('down');
+        dateSelect.classList.toggle('flip-move');
+        sortPosts("date", "newest");
+    }
 }
 
-// flip person carrot
-personTag.onclick = function() {
-    personSelect.classList.toggle('down');
-    personSelect.classList.toggle('flip-move');
+function triggerDrop() {
+    document.getElementById("dropdown-trigger").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }   
+        }
+    }
+}
+
+function sortPosts(mode, type) {
+    // reset and resort with new mode/type
+    if (mode == "person" && !dateSelect.classList.contains('down')) {
+        dateSelect.classList.toggle('down');
+        dateSelect.classList.toggle('flip-move');
+        dateSelected = false;
+    }
+    else if (mode == "person") dateSelected = false;
+    else if (mode == "date") {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }   
+        }
+    }
 }
