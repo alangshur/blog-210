@@ -15,7 +15,7 @@ app.use('/images', express.static('images'));
 // connect mongo 
 var db;
 
-MongoClient.connect('mongodb://room210:BLOG210!@ds014658.mlab.com:14658/blog210_db', { useNewUrlParser: true }, (err, client) => {
+MongoClient.connect('mongodb://room210:BLOG210!@ds016718.mlab.com:16718/blog210_db', { useNewUrlParser: true }, (err, client) => {
   if (err) return console.log(err);
 
   db = client.db('blog210_db');
