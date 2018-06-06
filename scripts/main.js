@@ -90,8 +90,6 @@ try {
 catch(err) {}
 
 function updateFields() {
-    document.getElementById("user-input").value = sessionStorage.getItem('user');
-
     // get time (convert from 24-hour clock)
     var formatted_date, formatted_time;
     var date = new Date();
@@ -109,6 +107,8 @@ function updateFields() {
     formatted_time = time + ":" + min + " " + meridiem;
     formatted_date = months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
 
-    document.getElementById("time-input").value = formatted_date + " - " + formatted_time;
+    document.getElementById("user-input").value = sessionStorage.getItem('user');
+    document.getElementById("formatted-date-input").value = formatted_date + " at " + formatted_time;
+    document.getElementById("date-input").value = new Date();
     document.getElementById("location-input").value = sessionStorage.getItem('location');
 }

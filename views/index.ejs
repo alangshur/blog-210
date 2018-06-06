@@ -34,17 +34,20 @@
       </div>
     </div>
 
-    <div id="post-body">
+    <div id="post-list">
       <% for(var i = posts.length - 1; i >= 0; i--) {%>
-        <div class="post-list" data-time="<%=posts[i].time%>" data-user="<%=posts[i].user%>">
+        <div class="post-body" data-formattedDate="<%=posts[i].formattedDate%>" data-date="<%=posts[i].date%>" data-user="<%=posts[i].user%>">
+          <div id="post-title"><%- posts[i].title %></div>
+          <div id="post-info">Posted by <%- posts[i].user %> &nbsp| &nbsp<%- posts[i].formattedDate %> &nbsp| &nbsp<%- posts[i].location %> </div>
+          
           <% var postStr = (posts[i].post).replace(/\r\n/g, '<br>'); %>
-          <%- postStr + posts[i].user + posts[i].location + posts[i].time%><br>
+          
+          <div id="post-block"><%- postStr %></div>
         </div>
       <% } %>
     </div>
     
     <script src="../scripts/main.js"></script>
-    <script src="../scripts/post.js"></script>
     <script src="../scripts/sort.js"></script>
     <script src="../scripts/jquery.min.js"></script>
   </body>

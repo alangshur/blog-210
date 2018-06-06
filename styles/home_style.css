@@ -48,10 +48,29 @@ i {
   -webkit-transform: rotate(45deg);
 }
 
-#post-body {
+.post-body {
   background-color: #e8ebef;
   width: 1000px;
   padding: 13px 20px 13px 20px;
-  margin: 20px auto;
+  margin: 25px auto;
   border: 2px solid darkblue;
+  font-size: 13px;
+}
+
+#post-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #343434;
+}
+
+#post-info {
+  font-size: 11px;
+  margin-top: 9px;
+  margin-bottom: 30px;
+  color: #808080;
+}
+
+#post-block {
+  color: #555555;
+  margin-bottom: 3px;
 }
