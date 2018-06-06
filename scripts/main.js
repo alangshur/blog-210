@@ -37,21 +37,9 @@ try {
             
             // find and store location
             try {
-                $.ajax({
-                    url: "https://geoip-db.com/jsonp",
-                    jsonpCallback: "callback",
-                    dataType: "jsonp",
-                    success: function(location) {
-                        var formatted_address = location.city + ", ";
-
-                        if (location.state != null) {
-                            formatted_address = formatted_address + location.state + ", ";
-                        }
-                        
-                        formatted_address += location.country_code;
-                        sessionStorage.setItem('location', formatted_address);
-                    }
-                });
+                $.get("https://api.ipdata.co", function (response) {
+                    sessionStorage.setItem('location', response.city + ", " + response.region + ", " + response.country_name);
+                }, "jsonp");
             }
             catch(err) {
                 console.log("Error retrieving location: " + err);
@@ -111,4 +99,8 @@ function updateFields() {
     document.getElementById("formatted-date-input").value = formatted_date + " at " + formatted_time;
     document.getElementById("date-input").value = new Date();
     document.getElementById("location-input").value = sessionStorage.getItem('location');
+}
+
+function testfn() {
+    console.log("PRINT");
 }

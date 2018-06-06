@@ -8,7 +8,7 @@
     <link href="../styles/dropdown.css" rel="stylesheet" type="text/css">
   </head>
 
-  <body>
+  <body style="margin:auto">
     <div id="main_body">
       <h1 align="center">Blog 210</h1>
       <img id ="login" class="logo_210" src="../images/logo_210.png" alt="210 Logo">
@@ -17,7 +17,7 @@
     </div>
 
     <div class="nav-bar">
-      <div class="sort-title inline_div">
+      <div onclick="testfn()" class="sort-title inline_div">
         <b>Sort Posts:</b>
       </div> 
       <div class="sort-date inline_div selectable">
@@ -37,12 +37,12 @@
     <div id="post-list">
       <% for(var i = posts.length - 1; i >= 0; i--) {%>
         <div class="post-body" data-formattedDate="<%=posts[i].formattedDate%>" data-date="<%=posts[i].date%>" data-user="<%=posts[i].user%>">
-          <div id="post-title"><%- posts[i].title %></div>
+          <div id="post-title"><%-posts[i].title%></div>
           <div id="post-info">Posted by <%- posts[i].user %> &nbsp| &nbsp<%- posts[i].formattedDate %> &nbsp| &nbsp<%- posts[i].location %> </div>
           
           <% var postStr = (posts[i].post).replace(/\r\n/g, '<br>'); %>
           
-          <div id="post-block"><%- postStr %></div>
+          <div id="post-block"><%-postStr%></div>
         </div>
       <% } %>
     </div>
