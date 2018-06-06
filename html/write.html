@@ -8,7 +8,14 @@
 
     <body style="margin:auto">
         <h2> Write Page </h2> 
-        <div id="home-format"><span id="nav_home" class="pointer">Home</span></div><br>
+        <div id="home-format"><span id="nav_home" class="pointer">Home</span>
+            <span class="pointer" id="delete">
+                Delete a Post
+                <form id="delete-form" action="/delete" method="POST">
+                    <input type="hidden" id="delete-input" name="delete"></input>
+                </form>
+            </span>
+        </div><br>
         <form id="post-form" action="/posts" method="POST">
             <div>
                 <input id="title-input" type="text" placeholder="Title" name="title"></input>

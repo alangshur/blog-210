@@ -77,6 +77,20 @@ try {
 }
 catch(err) {}
 
+var deleteSelect = document.querySelector('#delete');
+
+// delete button
+
+try {
+    deleteSelect.onclick = function() {
+        var input = prompt('Copy and paste the exact time and date of the post you want to delete.');
+
+        document.getElementById("delete-input").value = input;
+        document.getElementById("delete-form").submit();
+    }
+}
+catch(err) {}
+
 function updateFields() {
     // get time (convert from 24-hour clock)
     var formatted_date, formatted_time;
@@ -99,8 +113,4 @@ function updateFields() {
     document.getElementById("formatted-date-input").value = formatted_date + " at " + formatted_time;
     document.getElementById("date-input").value = new Date();
     document.getElementById("location-input").value = sessionStorage.getItem('location');
-}
-
-function testfn() {
-    console.log("PRINT");
 }

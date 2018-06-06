@@ -52,3 +52,11 @@ app.post('/posts', (req, res) => {
     res.redirect('/index.html'); 
   });
 });
+
+app.post('/delete', (req, res) => {
+  db.collection('posts').deleteOne({
+    formattedDate : req.body.delete
+  });
+
+  res.redirect('/index.html'); 
+});
