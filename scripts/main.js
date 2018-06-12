@@ -37,9 +37,9 @@ try {
             
             // find and store location
             try {
-                $.get("https://api.ipdata.co", function (response) {
-                    sessionStorage.setItem('location', response.city + ", " + response.region + ", " + response.country_name);
-                }, "jsonp");
+                $.getJSON('https://ipapi.co/json/', function(data){
+                    sessionStorage.setItem('location', data.city + ", " + data.region + ", " + data.country_name);
+                });
             }
             catch(err) {
                 console.log("Error retrieving location: " + err);

@@ -26,7 +26,7 @@ MongoClient.connect(process.env.MONGODB_URI || 'mongodb://room210:BLOG210!@ds016
   db = process.env.MONGODB_URI ? client.db('blog210_db_prod') : client.db('blog210_db');
 
   app.listen(PORT, () => {
-    console.log('Our app is running on port ${ PORT }');
+    console.log(`Our app is running on port ${ PORT }`);
   });
 });
 
