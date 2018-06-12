@@ -3,10 +3,14 @@ const express = require('express');
 const path = require('path');
 const bodyParser= require('body-parser'); 
 const MongoClient = require('mongodb').MongoClient;
+const compression = require('compression');
+const helmet = require('helmet');
 
 app = express();
 app.set('view engine', 'ejs');
 
+app.use(compression());
+app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/scripts', express.static('scripts'));
 app.use('/styles', express.static('styles'));
@@ -15,7 +19,7 @@ app.use('/images', express.static('images'));
 // connect mongo 
 var db;
 
-MongoClient.connect('mongodb://room210:BLOG210!@ds016718.mlab.com:16718/blog210_db', { useNewUrlParser: true }, (err, client) => {
+MongoClient.connect(process.env.MONGODB_URI || 'mongodb://room210:BLOG210!@ds016718.mlab.com:16718/blog210_db', { useNewUrlParser: true }, (err, client) => {
   if (err) return console.log(err);
 
   db = client.db('blog210_db');

@@ -1,6 +1,9 @@
 {
   "name": "blog210",
-  "version": "1.0.0",
+  "version": "2.5.0",
+  "engines": {
+    "node": "9.3.0"
+  },
   "description": "210 Blog Project",
   "main": "app.js",
   "scripts": {
@@ -19,8 +22,10 @@
   "homepage": "https://github.com/alangshur/blog210#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "helmet": "^3.12.1",
     "jquery": "^3.3.1",
     "jsdom": "^11.10.0",
     "mongodb": "^3.1.0-beta4"
