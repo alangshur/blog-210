@@ -18,25 +18,28 @@ app.use('/images', express.static('images'));
 
 // connect mongo 
 var db;
+const PORT = process.env.PORT || 3000;
 
 MongoClient.connect('mongodb://room210:BLOG210!@ds016718.mlab.com:16718/blog210_db', { useNewUrlParser: true }, (err, client) => {
   
 // if (err) return console.log(err);
 
-  console.log("LOG 1");
-
   db = client.db('blog210_db');
 
-  console.log("LOG 2");
-
-  // app.listen(3000, function() {
-  //   console.log('Listening on 3000');
-  // });  
+  app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+  });
 });
+
+console.log("LOG 1");
 
 app.get('/', (req, res) => {
+  console.log("LOG 2");
+
   res.redirect("/index.html");
 });
+
+console.log("LOG 3");
 
 app.get('/index.html', (req, res) => {
   db.collection('posts').find().toArray(function(err, result) {
