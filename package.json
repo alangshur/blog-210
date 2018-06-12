@@ -1,9 +1,6 @@
 {
   "name": "blog210",
   "version": "2.5.0",
-  "engines": {
-    "node": "9.3.0"
-  },
   "description": "210 Blog Project",
   "main": "app.js",
   "scripts": {
