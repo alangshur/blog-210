@@ -24,9 +24,9 @@ MongoClient.connect(process.env.MONGODB_URI || 'mongodb://room210:BLOG210!@ds016
 
   db = client.db('blog210_db');
 
-  app.listen(3000, function() {
-    console.log('Listening on 3000');
-  });  
+  // app.listen(3000, function() {
+  //   console.log('Listening on 3000');
+  // });  
 });
 
 app.get('/', (req, res) => {
