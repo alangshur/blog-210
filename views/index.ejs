@@ -39,7 +39,7 @@
         <div class="post-body" data-formattedDate="<%=posts[i].formattedDate%>" data-date="<%=posts[i].date%>" data-user="<%=posts[i].user%>">
           <div id="post-title"><%-posts[i].title%></div>
 
-          <div id="post-info">Posted by <%- posts[i].user %> &nbsp| &nbsp<%- posts[i].formattedDate %> <% if (posts[i].location) { %>&nbsp| &nbsp<% } %> <%- posts[i].location %> </div>
+          <div id="post-info">Posted by <%- posts[i].user %> &nbsp| &nbsp<%- posts[i].formattedDate %><% if (posts[i].location) { %> &nbsp| &nbsp<% } %><%- posts[i].location %></div>
           
           <% var postStr = (posts[i].post).replace(/\r\n/g, '<br>'); %>
           
