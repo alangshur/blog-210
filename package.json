@@ -1,11 +1,11 @@
 {
   "name": "blog210",
-  "version": "2.5.0",
+  "version": "3.0.0",
   "description": "210 Blog Project",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon ./app.js"
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",

@@ -20,26 +20,19 @@ app.use('/images', express.static('images'));
 var db;
 const PORT = process.env.PORT || 3000;
 
-MongoClient.connect('mongodb://room210:BLOG210!@ds016718.mlab.com:16718/blog210_db', { useNewUrlParser: true }, (err, client) => {
-  
-// if (err) return console.log(err);
+MongoClient.connect(process.env.MONGODB_URI || 'mongodb://room210:BLOG210!@ds016718.mlab.com:16718/blog210_db', { useNewUrlParser: true }, (err, client) => {
+  if (err) return console.log(err);
 
-  db = client.db('blog210_db');
+  db = process.env.MONGODB_URI ? client.db('blog210_db_prod') : client.db('blog210_db');
 
   app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
+    console.log('Our app is running on port ${ PORT }');
   });
 });
 
-console.log("LOG 1");
-
 app.get('/', (req, res) => {
-  console.log("LOG 2");
-
   res.redirect("/index.html");
 });
-
-console.log("LOG 3");
 
 app.get('/index.html', (req, res) => {
   db.collection('posts').find().toArray(function(err, result) {
