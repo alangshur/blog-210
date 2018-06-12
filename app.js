@@ -19,15 +19,15 @@ app.use('/images', express.static('images'));
 // connect mongo 
 var db;
 
-console.log("LOG 1");
-
 MongoClient.connect(process.env.MONGODB_URI || 'mongodb://room210:BLOG210!@ds016718.mlab.com:16718/blog210_db', { useNewUrlParser: true }, (err, client) => {
   
 // if (err) return console.log(err);
+
+  console.log("LOG 1");
+
+  db = client.db('blog210_db_prod');
+
   console.log("LOG 2");
-
-
-  db = client.db('blog210_db');
 
   // app.listen(3000, function() {
   //   console.log('Listening on 3000');
