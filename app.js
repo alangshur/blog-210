@@ -31,10 +31,10 @@ MongoClient.connect(process.env.MONGODB_URI || 'mongodb://room210:BLOG210!@ds016
 });
 
 app.get('/', (req, res) => {
-  res.redirect("/index.html");
+  res.redirect("/home");
 });
 
-app.get('/index.html', (req, res) => {
+app.get('/home', (req, res) => {
   db.collection('posts').find().toArray(function(err, result) {
     if (err) return console.log(err);
 
@@ -42,11 +42,11 @@ app.get('/index.html', (req, res) => {
   });
 });
 
-app.get('/about.html', (req, res) => {
+app.get('/about', (req, res) => {
   res.sendFile(__dirname + '/html/about.html');
 });
 
-app.get('/write.html', (req, res) => {
+app.get('/write', (req, res) => {
   res.sendFile(__dirname + '/html/write.html');
 });
 
@@ -54,7 +54,7 @@ app.post('/posts', (req, res) => {
   db.collection('posts').save(req.body, (err, result) => {
     if (err) return console.log(err);
 
-    res.redirect('/index.html'); 
+    res.redirect('/home'); 
   });
 });
 
@@ -63,5 +63,5 @@ app.post('/delete', (req, res) => {
     formattedDate : req.body.delete
   });
 
-  res.redirect('/index.html'); 
+  res.redirect('/home'); 
 });

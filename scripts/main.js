@@ -51,7 +51,7 @@ try {
             alert('Welcome back ' + userName + '!');
         }
         else {
-            window.location.href = "write.html";
+            window.location.href = "write";
         }
     }
 }
@@ -62,7 +62,7 @@ var homeSelect = document.querySelector('#nav_home');
 // navigate home
 try {
     homeSelect.onclick = function() {
-        window.location.href = "index.html";
+        window.location.href = "home";
     }
 }
 catch(err) {}
@@ -72,7 +72,7 @@ var aboutSelect = document.querySelector('#nav_about');
 // navigate about
 try {
     aboutSelect.onclick = function() {
-        window.location.href = "about.html";
+        window.location.href = "about";
     }
 }
 catch(err) {}
