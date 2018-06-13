@@ -1,19 +1,19 @@
 #about-top-body {
   background-color: #e8ebef;
   width: 1000px;
-  padding: 13px 20px 13px 20px;
+  padding: 15px 20px 22px 20px;
   margin: 20px auto;
   border: 2px solid darkblue;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 #about-bottom-body {
   background-color: #e8ebef;
   width: 1000px;
-  padding: 13px 20px 13px 20px;
+  padding: 15px 20px 20px 20px;
   margin: 20px auto;
   border: 2px solid darkblue;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .portrait-format {
@@ -32,15 +32,23 @@
   width: 70%;
   font-size: 12px;
   padding: 0px 0px 0px 46px;
+  display: inline;
+}
+
+#github-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  width: auto;
+  cursor: pointer;
 }
 
 .name {
   font-size: 18px;
   font-weight: bold;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 p {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
 }
