@@ -14,6 +14,7 @@
   margin: 20px auto;
   border: 2px solid darkblue;
   font-size: 18px;
+  display: grid;
 }
 
 .portrait-format {
@@ -23,7 +24,9 @@
   display: block;
   padding: 1px;
   border: 1px solid #021a40;
-  background-color: #B7CFF2; 
+  background-color: #B7CFF2;
+  grid-column-start: 1;
+  float: left;
 }
 
 .about-text {
@@ -33,6 +36,27 @@
   font-size: 12px;
   padding: 0px 0px 0px 46px;
   display: inline;
+  grid-column-start: 2;
+}
+
+.bio {
+  margin-bottom: 20px;
+}
+
+.alex {
+  grid-row-start: 1;
+}
+
+.ryan {
+  grid-row-start: 2;
+}
+
+.matt {
+  grid-row-start: 3;
+}
+
+.max {
+  grid-row-start: 4;
 }
 
 #github-logo {
