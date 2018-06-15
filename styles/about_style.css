@@ -1,20 +1,4 @@
-#about-top-body {
-  background-color: #e8ebef;
-  width: 1000px;
-  padding: 15px 20px 22px 20px;
-  margin: 20px auto;
-  border: 2px solid darkblue;
-  font-size: 18px;
-}
-
-#about-bottom-body {
-  background-color: #e8ebef;
-  width: 1000px;
-  padding: 15px 20px 20px 20px;
-  margin: 20px auto;
-  border: 2px solid darkblue;
-  font-size: 18px;
-}
+/* CLASSES */
 
 .portrait-format {
   width: 250px;
@@ -35,6 +19,32 @@
   display: inline;
 }
 
+.name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* IDS */
+
+#about-top-body {
+  background-color: #e8ebef;
+  width: 1000px;
+  padding: 15px 20px 22px 20px;
+  margin: 20px auto;
+  border: 2px solid darkblue;
+  font-size: 18px;
+}
+
+#about-bottom-body {
+  background-color: #e8ebef;
+  width: 1000px;
+  padding: 15px 20px 20px 20px;
+  margin: 20px auto;
+  border: 2px solid darkblue;
+  font-size: 18px;
+}
+
+
 #github-logo {
   display: block;
   margin-left: auto;
@@ -44,10 +54,7 @@
   cursor: pointer;
 }
 
-.name {
-  font-size: 18px;
-  font-weight: bold;
-}
+/* TAGS */
 
 p {
   font-size: 14px;

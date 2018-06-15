@@ -1,3 +1,32 @@
+/* CLASSES */
+
+.pointer {
+    cursor: pointer;
+}
+
+/* IDS */
+
+#home-format {
+    margin-bottom: -12px;
+    margin-top: -10px;
+    font-size: 18px;
+}
+
+#title-input {
+    width: 617px;
+    height: 23px;
+    margin-bottom: 13px;
+    border: 1px black solid;
+    padding: 6px;
+}
+
+
+#delete {
+    margin-left: 15rem;
+}
+
+/* TAGS */
+
 html {
     font-size: 20px;
     font-family: verdana;
@@ -14,29 +43,7 @@ button {
     cursor: pointer;
 }
 
-#home-format {
-    margin-bottom: -12px;
-    margin-top: -10px;
-    font-size: 18px;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-#title-input {
-    width: 617px;
-    height: 23px;
-    margin-bottom: 13px;
-    border: 1px black solid;
-    padding: 6px;
-}
-
 textarea {
     border: 1px black solid;
     padding: 6px;
-}
-
-#delete {
-    margin-left: 15rem;
 }

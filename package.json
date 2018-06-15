@@ -1,6 +1,6 @@
 {
   "name": "blog210",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "210 Blog Project",
   "main": "app.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/alangshur/blog210/issues"
   },
-  "homepage": "https://github.com/alangshur/blog210#readme",
+  "homepage": "blog210.life",
   "dependencies": {
     "body-parser": "^1.18.3",
     "compression": "^1.7.2",

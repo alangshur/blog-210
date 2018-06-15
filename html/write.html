@@ -8,6 +8,7 @@
 
     <body style="margin:auto">
         <h2> Write Page </h2> 
+        
         <div id="home-format"><span id="nav_home" class="pointer">Home</span>
             <span class="pointer" id="delete">
                 Delete a Post
@@ -15,18 +16,18 @@
                     <input type="hidden" id="delete-input" name="delete"></input>
                 </form>
             </span>
-        </div><br>
+        </div>
+        <br>
+
         <form id="post-form" action="/posts" method="POST">
             <div>
                 <input id="title-input" type="text" placeholder="Title" name="title"></input>
             </div>
-            
             <textarea rows="25" cols="100" placeholder="Post Body" name="post"></textarea>
             <input type="hidden" id="user-input" name="user">
             <input type="hidden" id="formatted-date-input" name="formattedDate">
             <input type="hidden" id="date-input" name="date">
             <input type="hidden" id="location-input" name="location">
-
             <div>
                 <button type="submit" onclick="updateFields()">Post</button>
             </div>
