@@ -67,21 +67,21 @@
 /* IDS */
 
 #about-top-body {
-  background-color: #e8ebef;
-  width: 1000px;
-  padding: 15px 20px 22px 20px;
-  margin: 20px auto;
-  border: 2px solid darkblue;
-  font-size: 18px;
+  background-color: #F4F4F4;
+  max-width: 1170px;
+  margin: 15px auto;
+  padding: 20px;
+  border: 2px solid #C0B283;
+  font-size: 16px;
 }
 
 #about-bottom-body {
-  background-color: #e8ebef;
-  width: 1000px;
-  padding: 15px 20px 20px 20px;
-  margin: 20px auto;
-  border: 2px solid darkblue;
-  font-size: 18px;
+  background-color: #F4F4F4;
+  max-width: 1170px;
+  margin: 15px auto;
+  padding: 20px;
+  border: 2px solid #C0B283;
+  font-size: 16px;
 }
 
 
@@ -98,4 +98,14 @@
 
 p {
   font-size: 14px;
+}
+
+#content {
+  padding-top: 50px;
+}
+
+h2 {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 700;
+  font-size: 150%;
 }

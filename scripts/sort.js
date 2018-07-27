@@ -1,18 +1,19 @@
 var dateTag = document.querySelector('.sort-date');
 var dateSelect = document.querySelector('#flip-date');
+var personSelected = document.querySelector('#person-selected');
 var sortState = null;
 var uncorruptedCopy = null;
 
 // flip date carrot
 dateTag.onclick = function() {
-    if (dateSelect.classList.contains('down')) {
-        dateSelect.classList.toggle('down');
-        dateSelect.classList.toggle('flip-move');
+    if (dateSelect.classList.contains('fa-arrow-circle-down')) {
+        dateSelect.classList.remove('fa-arrow-circle-down');
+        dateSelect.classList.add('fa-arrow-circle-up');
         sortPosts("date", "oldest");
     }
     else {
-        dateSelect.classList.toggle('down');
-        dateSelect.classList.toggle('flip-move');
+        dateSelect.classList.add('fa-arrow-circle-down');
+        dateSelect.classList.remove('fa-arrow-circle-up');
         sortPosts("date", "newest");
     }
 }
@@ -24,6 +25,7 @@ function triggerDrop() {
 window.onload = function() {
     if (sortState == null || uncorruptedCopy == null) {
         uncorruptedCopy = $('.post-body');
+        sortPosts("date", "newest");
     }
 }
 
@@ -63,20 +65,37 @@ function sortPosts(mode, type) {
         if (sortState == "date" || sortState == null) {
             uncorruptedCopy.appendTo('#post-list');
             sortState = "person";
-        }
+        }                
 
         // sort user
-        $('.post-body').sort(function(a, b) {
-            return compareUsers($(a)[0].dataset.user, $(b)[0].dataset.user, type);
-        }).appendTo('#post-list');
+        var filtered = $('.post-body').toArray().filter(function(elem, index, array){
+            return array[index].dataset.user != type;
+        });
+        console.log(filtered);
+
+        // sort by date selector
+        if (dateSelect.classList.contains('fa-arrow-circle-down')) {
+            sortPosts("date", "newest");
+        } else {
+            sortPosts("date", "oldest");
+        }
+
+        // update view
+        personSelected.innerHTML = type;
+
+        // add to feed
+        $(filtered).appendTo('#post-list');
+        
     }
     else {
         if (sortState == "person" || sortState == null) {
             uncorruptedCopy.appendTo('#post-list');
             sortState = "date";
         }
+        personSelected.innerHTML = 'None Selected';        
 
         if (type == "newest") {
+            dateSelect.innerHTML = '<span class="sort-descriptor"> Newest First</span>';            
             $('.post-body').sort(function(a, b) {
                 if (new Date(a.dataset.date) - new Date(b.dataset.date) > 0) {
                     return -1;
@@ -90,6 +109,7 @@ function sortPosts(mode, type) {
             }).appendTo('#post-list');
         }
         else {
+            dateSelect.innerHTML = '<span class="sort-descriptor"> Oldest First</span>';            
             $('.post-body').sort(function(a, b) {
                 if (new Date(a.dataset.date) - new Date(b.dataset.date) > 0) {
                     return 1;
