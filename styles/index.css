@@ -150,6 +150,11 @@
     /* Tags */
     /* Classes */
     /* IDs */
+      
+      #paging {
+        text-align: center;
+        margin: 15px auto;
+      }
   
   .nav-bar {
     width: 1000px;

@@ -10,7 +10,7 @@ try {
             var input = prompt('Please enter the user password.');
             if(input != 'SENDIT') {
                 alert("Incorrect password.");
-                window.location.href = "home";
+                window.location.href = "/";
                 return;
             }
         
@@ -48,10 +48,11 @@ try {
             sessionStorage.setItem('writeAccess', 'true');
         
             alert('Welcome back ' + userName + '!');
+            window.location.href = "/";
         }
         else {
             if(sessionStorage.getItem('writeAccess') == 'true') {
-            window.location.href = "write";
+            window.location.href = "../write";
         }
     }
 }
@@ -63,7 +64,7 @@ var homeSelect = document.querySelector('#nav_home');
 // navigate home
 try {
     homeSelect.onclick = function() {
-        window.location.href = "home";
+        window.location.href = "../";
     }
 }
 catch(err) {}
@@ -73,7 +74,7 @@ var aboutSelect = document.querySelector('#nav_about');
 // navigate about
 try {
     aboutSelect.onclick = function() {
-        window.location.href = "about";
+        window.location.href = "../about";
     }
 }
 catch(err) {}

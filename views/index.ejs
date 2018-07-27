@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- STYLES -->
-    <link href="../styles/master.css" rel="stylesheet" type="text/css">
-    <link href="../styles/index.css" rel="stylesheet" type="text/css">
-    <link href="../styles/dropdown.css" rel="stylesheet" type="text/css">    
+    <link href="../../styles/master.css" rel="stylesheet" type="text/css">
+    <link href="../../styles/index.css" rel="stylesheet" type="text/css">
+    <link href="../../styles/dropdown.css" rel="stylesheet" type="text/css">    
 
-    <link rel="stylesheet" media="screen and (min-width: 900px)" href="../styles/display_large.css">
-    <link rel="stylesheet" media="screen and (min-width: 500px) and (max-width: 900px)" href="../styles/display_medium.css">
-    <link rel="stylesheet" media="screen and (max-width: 500px)" href="../styles/display_small.css">
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="../../styles/display_large.css">
+    <link rel="stylesheet" media="screen and (min-width: 500px) and (max-width: 900px)" href="../../styles/display_medium.css">
+    <link rel="stylesheet" media="screen and (max-width: 500px)" href="../../styles/display_small.css">
     
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Chivo" rel="stylesheet"> <!-- intended for headers -->
@@ -35,10 +35,10 @@
             Blog 210
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="home">Home</a>
+            <a class="nav-link" href="../page/1">Home</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="about">About Us</a>
+              <a class="nav-link" href="../about">About Us</a>
           </li>
           <li class="nav-item nav-align-right" id="login">
               <a class="nav-link"><i class="fas fa-lg fa-user-circle"></i></a>
@@ -50,7 +50,7 @@
       <section id="title-page">
         <!-- <h2>"Some dumb quote by Matt Hall" - Matt Hall</h2> -->
         <div id="title-image">
-            <img src="images/logo_white.png" id="logo"/>
+            <img src="../../images/logo_white.png" id="logo"/>
             <h1>Welcome to Blog 210.</h1>
         </div>
       </section>
@@ -79,24 +79,33 @@
         </div>
 
         <div id="post-list">
-          <% for(var i = posts.length - 1; i >= 0; i--) {%>
-            <div class="post-body" data-formattedDate="<%=posts[i].formattedDate%>" data-date="<%=posts[i].date%>" data-user="<%=posts[i].user%>">
-              <div id="post-title"><%-posts[i].title%></div>
-    
-              <div id="post-info">Posted by <%- posts[i].user %> &nbsp| &nbsp<%- posts[i].formattedDate %><% if (posts[i].location) { %> &nbsp| &nbsp<% } %><%- posts[i].location %></div>
-              
-              <% var postStr = (posts[i].post).replace(/\r\n/g, '<br>'); %>
-              
-              <div id="post-block"><%-postStr%></div>
-            </div>
+          <% for(var i = posts.length - ((currPage - 1) * 10) - 1; i > posts.length - (currPage * 10) - 1; i--) {%>
+            <% if(posts[i]) { %>
+              <div class="post-body" data-formattedDate="<%=posts[i].formattedDate%>" data-date="<%=posts[i].date%>" data-user="<%=posts[i].user%>">
+                <div id="post-title"><%-posts[i].title%></div>
+      
+                <div id="post-info">Posted by <%- posts[i].user %> &nbsp| &nbsp<%- posts[i].formattedDate %><% if (posts[i].location) { %> &nbsp| &nbsp<% } %><%- posts[i].location %></div>
+                
+                <% var postStr = (posts[i].post).replace(/\r\n/g, '<br>'); %>
+                
+                <div id="post-block"><%-postStr%></div>
+              </div>
+            <% } %>
           <% } %>
         </div>
       </section>
+      <div id="paging">
+          <i class="fas fa-angle-left" id="page-back" style="cursor: pointer"></i>
+          Page <span id="curr-page"><%-currPage %></span> of <span id="total-pages"><%-totalPages %></span>
+          <i class="fas fa-angle-right" id="page-forward" style="cursor: pointer"></i>
+      </div>
     </div>
     
-    <script src="../scripts/main.js"></script>
-    <script src="../scripts/sort.js"></script>
-    <script src="../scripts/jquery.min.js"></script>
-    <script src="../scripts/sticky-navbar.js"></script>
+    <script src="../../scripts/main.js"></script>
+    <script src="../../scripts/sort.js"></script>
+    <script src="../../scripts/jquery.min.js"></script>
+    <script src="../../scripts/sticky-navbar.js"></script>
+    <script src="../../scripts/paging.js"></script>
+    <script src="../../scripts/login-icon.js"></script>
   </body>
 </html>

@@ -5,6 +5,10 @@
     display: none;
 }
 
+i span {
+    display: none;
+}
+
 /* title image, logo, and header */
 #title-image {
     width: 350px;

@@ -38,7 +38,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
+  width: 100%;
 }
 ol, ul {
 	list-style: none;
@@ -107,6 +108,10 @@ body {
 
   .nav-align-right {
     float: right;
+  }
+
+  .fa-user-circle {
+    cursor: pointer;
   }
 
 /* IDs */

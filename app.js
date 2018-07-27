@@ -36,14 +36,23 @@ app.listen(PORT, () => {
 
 // Express GET
 app.get('/', (req, res) => {
-  res.redirect("/home");
+  res.redirect("/page/1");
 });
 
+// for mix-ups in previous routing builds
 app.get('/home', (req, res) => {
+  res.redirect("/page/1");
+});
+
+app.get('/page/:pageReq', (req, res) => {
   db.collection('posts').find().toArray(function(err, result) {
     if (err) return console.log(err);
-
-    res.render('index.ejs', {posts: result})
+    var totalEntries = db.collection('posts').count();
+    var totalPages;
+    totalEntries.then(function(entries) {
+      totalPages = Math.ceil(entries / 10);
+      res.render('index.ejs', {posts: result, totalPages: totalPages, currPage: req.params["pageReq"]})
+    });
   });
 });
 
@@ -60,7 +69,7 @@ app.post('/posts', (req, res) => {
   db.collection('posts').save(req.body, (err, result) => {
     if (err) return console.log(err);
 
-    res.redirect('/home'); 
+    res.redirect('/'); 
   });
 });
 
@@ -69,5 +78,5 @@ app.post('/delete', (req, res) => {
     formattedDate : req.body.delete
   });
 
-  res.redirect('/home'); 
+  res.redirect('/'); 
 });
