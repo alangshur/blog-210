@@ -1,7 +1,6 @@
 if (!sessionStorage.getItem('writeAccess')) {
     sessionStorage.setItem('writeAccess', 'false');
 }
-
 var promptSelect = document.querySelector('#login');
 
 // login prompt
@@ -9,9 +8,9 @@ try {
     promptSelect.onclick = function() {
         if (sessionStorage.getItem('writeAccess') == 'false') {
             var input = prompt('Please enter the user password.');
-    
-            if (input != 'SENDIT') {
-                alert("Incorrect Password");
+            if(input != 'SENDIT') {
+                alert("Incorrect password.");
+                window.location.href = "home";
                 return;
             }
         
@@ -51,9 +50,11 @@ try {
             alert('Welcome back ' + userName + '!');
         }
         else {
+            if(sessionStorage.getItem('writeAccess') == 'true') {
             window.location.href = "write";
         }
     }
+}
 }
 catch(err) {}
 
