@@ -1,0 +1,171 @@
+/* COLOR SCHEME */
+#color-scheme {
+    color: #C0B283;
+    color: #DCD0C0;
+    color: #F4F4F4;
+    color: #373737;
+  }
+  
+  /************************************************************************************/
+  
+  /* MAIN PAGE STYLING */
+  
+    /* Tags */
+  
+      i {
+        color: #373737;
+        border: 0px !important;
+      }
+  
+    /* Classes */
+
+    /* IDs */
+  
+      #content {
+        padding-top: 50px;
+      }
+  
+  /* TITLE PAGE */
+  
+    /* Tags */
+      
+      h1 {
+        text-align: center;
+        margin: auto;
+        font-family: 'Chivo', sans-serif;
+        font-weight: 600;
+        color: #F4F4F4;
+      }
+
+      h2 {
+        font-family: 'Overpass', sans-serif;
+        color: #C0B283;
+        font-weight: 400;
+        font-style: italic;
+        text-align: center;
+        margin: auto;
+        margin-top: 25px;
+        font-size: 200%;
+      }
+
+    /* Classes */
+
+    /* IDs */
+      #title-image {
+        display: block;
+        margin: auto;
+        margin-top: 25px;
+        border: 2px solid #C0B283;
+        background-image: url('../images/nyc.jpg');
+        background-size: cover;
+      }
+  
+  /* POSTS */
+  
+    /* Tags */
+      
+    /* Classes */
+
+      .post-body {
+        background-color: #F4F4F4;
+        max-width: 1170px;
+        margin: 15px 15px;
+        padding: 20px;
+        border: 2px solid #C0B283;
+        font-size: 16px;
+      }
+
+      .sticky {
+        position: fixed;
+        top: 50px;
+        margin-top: 0px !important;
+        width: 100%;
+        display: block;
+        margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+        left: 0;
+        right: 0;
+      }
+
+      .offset {
+        margin-top: 96px !important;
+      }
+
+      .sort-menu-item {
+        display: inline;
+        margin: 20px 20px;
+        font-family: 'Chivo', sans-serif;
+      }
+
+      .sort-descriptor {
+        font-family: 'Overpass', sans-serif;
+        font-weight: 400;    
+        -webkit-font-smoothing: auto;
+        color: #373737;
+      }
+
+    /* IDs */
+
+      #blog-header {
+        max-width: 1200px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        height: 50px;
+        padding: 2px;
+        background-color: #F4F4F4;
+        margin: 20px auto;
+        border-bottom: 2px solid #C0B283;
+      }
+
+      #post-list {
+        max-width: 1200px;
+        margin-top: 15px;
+        margin: auto;
+        display: block;
+        border: 2px solid #C0B283;
+        background-color: #DCD0C0;
+      }
+
+      #post-title {
+        font-size: 30px;
+        font-weight: 700;
+        font-family: 'Chivo', sans-serif;
+        color: #373737;
+      }
+        
+      #post-info {
+        font-size: 11px;
+        margin-top: 9px;
+        margin-bottom: 30px;
+        color: #808080;
+      }
+        
+      #post-block {
+        color: #555555;
+        margin-bottom: 3px;
+      }
+  
+  /* FOOTER */
+  
+    /* Tags */
+    /* Classes */
+    /* IDs */
+  
+  .nav-bar {
+    width: 1000px;
+    height: 0px;
+    background-color: #B7CFF2;
+    padding: 20px 20px 20px 20px;
+    margin: 20px auto;
+    border: 2px solid darkblue;
+    font-size: 13px;
+  }
+  
+  /* IDS */
+  
+  #editButton {
+    cursor: pointer;
+    color: darkblue;
+  }
+  
+  /* TAGS */

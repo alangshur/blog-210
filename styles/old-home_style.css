@@ -1,0 +1,87 @@
+/* CLASSES */
+
+.nav-bar {
+  width: 1000px;
+  height: 0px;
+  background-color: #B7CFF2;
+  padding: 20px 20px 20px 20px;
+  margin: 20px auto;
+  border: 2px solid darkblue;
+  font-size: 13px;
+}
+
+.sort-title {
+  position: relative;
+  bottom: 16px;
+}
+
+.sort-date {
+  position: relative;
+  bottom: 16px;
+  left: 39%;
+}
+
+.sort-person {
+  bottom: 16px;
+  left: 79.6%;
+}
+
+.flip-move {
+  top: -2px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.post-body {
+  background-color: #e8ebef;
+  width: 1000px;
+  padding: 13px 20px 13px 20px;
+  margin: 21px auto;
+  border: 2px solid darkblue;
+  font-size: 13px;
+}
+
+/* IDS */
+
+#post-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #343434;
+}
+
+#post-info {
+  font-size: 11px;
+  margin-top: 9px;
+  margin-bottom: 30px;
+  color: #808080;
+}
+
+#post-block {
+  color: #555555;
+  margin-bottom: 3px;
+}
+
+#editButton {
+  cursor: pointer;
+  color: darkblue;
+}
+
+/* TAGS */
+
+i {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  position: relative;
+  top: 2px;
+  left: 4px;
+}

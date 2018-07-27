@@ -1,0 +1,24 @@
+/* DISPLAY-SPECIFIC STYLE RULES */
+
+/* removes descriptors on sort buttons for smaller displays */
+.sort-descriptor {
+    display: none;
+}
+
+/* title image, logo, and header */
+#title-image {
+    width: 350px;
+    height: 175px;
+  }
+
+#logo {
+    width: 175px;
+    margin-left: 87.5px;
+    margin-right: 87.5px;
+    margin-top: 43.75px;
+}
+
+h1 {
+    font-size: 180%;
+    margin-top: 8px;  
+}
