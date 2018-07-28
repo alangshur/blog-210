@@ -79,7 +79,17 @@
         </div>
 
         <div id="post-list">
-          <% console.log(posts) %>
+          <!-- SORT POSTS BEFORE RENDERING SO ALL PAGES ARE SORTED -->
+          <% posts.sort(function(a, b) { %>
+            <% if (new Date(a.date) - new Date(b.date) > 0) { %>
+              <% return 1; %>
+              <% } else if (new Date(a.date) - new Date(b.date) < 0) { %>
+                <% return -1; %>
+                <% } else { %>
+                  <% return 0; %>
+                  <% } %>
+                  <% }); %>
+          <!-- ITERATE THROUGH POSTS FOR GIVEN PAGE AND RENDER -->
           <% for(var i = posts.length - ((currPage - 1) * 10) - 1; i > posts.length - (currPage * 10) - 1; i--) {%>
             <% if(posts[i]) { %>
                 <div class="post-body" data-formattedDate="<%=posts[i].formattedDate%>" data-date="<%=posts[i].date%>" data-user="<%=posts[i].user%>">
