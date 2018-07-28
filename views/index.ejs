@@ -79,6 +79,7 @@
         </div>
 
         <div id="post-list">
+          <% console.log(posts) %>
           <% for(var i = posts.length - ((currPage - 1) * 10) - 1; i > posts.length - (currPage * 10) - 1; i--) {%>
             <% if(posts[i]) { %>
                 <div class="post-body" data-formattedDate="<%=posts[i].formattedDate%>" data-date="<%=posts[i].date%>" data-user="<%=posts[i].user%>">
@@ -101,11 +102,11 @@
       </div>
     </div>
     
-    <script src="../../scripts/main.js"></script>
-    <script src="../../scripts/sort.js"></script>
-    <script src="../../scripts/jquery.min.js"></script>
-    <script src="../../scripts/sticky-navbar.js"></script>
-    <script src="../../scripts/paging.js"></script>
-    <script src="../../scripts/login-icon.js"></script>
+    <script src="../../scripts/main.js" async></script>
+    <script src="../../scripts/sort.js" async></script>
+    <script src="../../scripts/jquery.min.js" async></script>
+    <script src="../../scripts/sticky-navbar.js" async></script>
+    <script src="../../scripts/paging.js" async></script>
+    <script src="../../scripts/login-icon.js" async></script>
   </body>
 </html>
