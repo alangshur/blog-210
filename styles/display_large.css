@@ -17,3 +17,7 @@ h1 {
   font-size: 300%;
   margin-top: 15px;  
 }
+
+.sort-menu-item {
+  min-width: 200px;
+}

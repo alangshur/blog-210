@@ -26,3 +26,7 @@ h1 {
     font-size: 180%;
     margin-top: 8px;  
 }
+
+.nav-item {
+    font-size: 85%;
+}

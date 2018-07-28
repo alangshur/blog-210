@@ -44,6 +44,8 @@ app.get('/home', (req, res) => {
   res.redirect("/page/1");
 });
 
+
+// paging
 app.get('/page/:pageReq', (req, res) => {
   db.collection('posts').find().toArray(function(err, result) {
     if (err) return console.log(err);
@@ -51,7 +53,7 @@ app.get('/page/:pageReq', (req, res) => {
     var totalPages;
     totalEntries.then(function(entries) {
       totalPages = Math.ceil(entries / 10);
-      res.render('index.ejs', {posts: result, totalPages: totalPages, currPage: req.params["pageReq"]})
+      res.render('index.ejs', {posts: result, totalPages: totalPages, currPage: req.params["pageReq"], currUser: null})
     });
   });
 });
